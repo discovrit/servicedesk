@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
 using wotw.servicedesk.Models;
 using wotw.servicedesk.Service;
 
@@ -21,19 +23,20 @@ namespace wotw.servicedesk.Controllers
 
         public IActionResult MyTickets()
         {
-            return View(); 
+            var rnd = new Random();
+            var count = rnd.Next(1, 10000);
+            List<Ticket> tickets = _ticketService.GetTickets(count);
+
+            TicketViewModel model = new TicketViewModel(tickets);
+
+            return View(model); 
         }
 
 
         public IActionResult Ticket(int id)
         {
             Ticket ticket = _ticketService.GetById(id);
-
-            ViewData["TicketId"] = ticket.Id;
-            ViewData["TicketTitle"] = ticket.Title;
-            ViewData["TicketDesc"] = ticket.Description;
-
-            return View();
+            return View(ticket);
         }
 
         public IActionResult Edit()

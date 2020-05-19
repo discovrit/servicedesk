@@ -1,23 +1,29 @@
-﻿@{
+﻿@model Ticket
+@{
     ViewData["Title"] = "View Ticket";
 }
 
-    <div class="text-center">
-        <h1 class="display-4">View Ticket @ViewData["TicketId"]</h1>
-
-        <div class="row">
-            <div class="form-group">
-                <label for="title">Title</label>
-                <label class="form-control" id="title">@ViewData["TicketTitle"]</label>
-            </div>
-        </div>
-
-
-        <div class="row">
-            <div class="form-group">
-                <label for="description">Description</label>
-                <label class="form-control" id="description">@ViewData["TicketDesc"]</label>
-            </div>
-        </div>
-
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Prority</th>
+                    <th>Name</th>
+                    <th>Enail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@Model.Id</td>
+                    <td>@Model.Title</td>
+                    <td>@Model.Description</td>
+                    <td>@Model.Priority</td>
+                    <td>@Model.RequestorName</td>
+                    <td>@Model.RequestorEmail</td>
+                </tr>
+            </tbody>
+        </table>
     </div>

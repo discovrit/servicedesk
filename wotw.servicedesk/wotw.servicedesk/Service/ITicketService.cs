@@ -8,6 +8,7 @@ namespace wotw.servicedesk.Service
 {
     public interface ITicketService
     {
+        List<Ticket> GetTickets(int number);
         Ticket GetById(int id);
     }
 }
