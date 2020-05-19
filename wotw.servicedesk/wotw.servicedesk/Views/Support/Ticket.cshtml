@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "View Ticket";
+}
+
+    <div class="text-center">
+        <h1 class="display-4">View Ticket @ViewData["TicketId"]</h1>
+
+        <div class="row">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <label class="form-control" id="title">@ViewData["TicketTitle"]</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <label class="form-control" id="description">@ViewData["TicketDesc"]</label>
+            </div>
+        </div>
+
+    </div>
